@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support & FAQ | LuxoPack — Custom Gift Box Manufacturer</title>
+  <meta name="description" content="LuxoPack support center: MOQ, lead times, sampling, customs, payments, quality guarantees, FBA shipping and more. Get answers or contact us directly."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .support-layout{display:grid;grid-template-columns:240px 1fr;gap:52px;max-width:1100px;margin:0 auto}
+    .faq-nav{position:sticky;top:90px}
+    .faq-nav-item{display:block;padding:10px 14px;border-radius:8px;color:var(--gray);font-size:0.85rem;font-weight:500;text-decoration:none;transition:all 0.2s;margin-bottom:4px;border-left:2px solid transparent}
+    .faq-nav-item:hover,.faq-nav-item.active{color:var(--gold);background:rgba(201,168,76,0.06);border-left-color:var(--gold)}
+    .faq-nav-title{font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin:18px 0 8px 14px}
+
+    .faq-category{margin-bottom:52px;scroll-margin-top:90px}
+    .faq-cat-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:20px;display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07)}
+    .faq-cat-icon{font-size:1.4rem}
+
+    .faq-item-s{border-bottom:1px solid rgba(255,255,255,0.06)}
+    .faq-q-s{width:100%;background:none;border:none;color:var(--white);font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;padding:16px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.4}
+    .faq-q-s .faq-ico{font-size:1.1rem;color:var(--gold);flex-shrink:0;transition:transform 0.3s;font-style:normal}
+    .faq-a-s{color:var(--gray);font-size:0.88rem;line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+    .faq-item-s.open .faq-a-s{max-height:500px;padding-bottom:18px}
+    .faq-item-s.open .faq-ico{transform:rotate(45deg)}
+
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+    .contact-card{background:var(--dark3);border-radius:14px;border:1px solid rgba(255,255,255,0.06);padding:26px 22px;text-align:center;transition:all 0.3s}
+    .contact-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+    .contact-card-icon{font-size:2rem;margin-bottom:12px}
+    .contact-card-title{font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:6px}
+    .contact-card-info{color:var(--gray);font-size:0.85rem;line-height:1.6}
+    .contact-card-info a{color:var(--gold);text-decoration:none}
+    .contact-card-hours{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:8px}
+
+    @media(max-width:768px){.support-layout{grid-template-columns:1fr}.faq-nav{display:none}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LUXO<span>PACK</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="support.html" class="active">Support</a></li>
+    <li><a href="quote.html" class="nav-cta">Get Free Quote</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-label">Help Center</div>
+  <h1>Support &amp; <em>FAQ</em></h1>
+  <p>Everything you need to know about ordering, customization, sampling, shipping and quality. Can't find your answer? Contact Amy directly — she'll respond within 2 hours.</p>
+</div>
+
+<section style="background:var(--dark2)">
+  <div class="support-layout">
+
+    <!-- SIDEBAR NAV -->
+    <div class="faq-nav">
+      <div class="faq-nav-title">Categories</div>
+      <a href="#ordering" class="faq-nav-item active" onclick="setActive(this)">📋 Ordering & MOQ</a>
+      <a href="#customization" class="faq-nav-item" onclick="setActive(this)">🎨 Customization</a>
+      <a href="#sampling" class="faq-nav-item" onclick="setActive(this)">📦 Sampling</a>
+      <a href="#production" class="faq-nav-item" onclick="setActive(this)">🏭 Production</a>
+      <a href="#shipping" class="faq-nav-item" onclick="setActive(this)">🚢 Shipping & FBA</a>
+      <a href="#quality" class="faq-nav-item" onclick="setActive(this)">✅ Quality & Policy</a>
+      <a href="#payment" class="faq-nav-item" onclick="setActive(this)">💳 Payment</a>
+      <a href="#capabilities" class="faq-nav-item" onclick="setActive(this)">⚙️ Capabilities</a>
+    </div>
+
+    <!-- FAQ CONTENT -->
+    <div>
+
+      <!-- ORDERING & MOQ -->
+      <div class="faq-category" id="ordering">
+        <div class="faq-cat-title"><span class="faq-cat-icon">📋</span>Ordering & MOQ</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What is the minimum order quantity (MOQ)? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Our MOQ varies by product: Magnetic Rigid Boxes — 100 pcs · Custom Mailer Boxes — 200 pcs · Sliding Drawer Boxes — 100 pcs · Cylinder Tube Boxes — 200 pcs · Foldable Magnetic Boxes — 300 pcs · Luxury Paper Bags — 300 pcs · Rigid Setup Boxes — 100 pcs · Tissue Paper — 500 sheets. We cannot do sample runs below these quantities for custom printed orders.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you accept orders from small brands or startups? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Absolutely. We work with brands of all sizes — from entrepreneurs launching their first product to global retailers ordering millions of pieces per year. Our MOQ of 100 pcs exists to make customization economically viable, not to filter out small businesses.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I order multiple box types in one order? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes. You can mix different product types in one order — each type must meet its own MOQ. We'll send you a consolidated quote covering all items, and you'll get one shipment with everything.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Is there a discount for large quantity orders? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — our pricing is tiered. The price per piece decreases significantly as quantity increases. As a rough guide: 500 pcs = base price · 1,000 pcs = ~12% off · 5,000 pcs = ~35% off · 10,000+ pcs = ~45% off. Use our Price Estimator on the <a href="quote.html">Quote page</a> for instant estimates.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do I need to commit to an order to get a quote? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">No commitment required at any stage until you approve the production sample and make a deposit. Quotes, design mockups and sample-making are part of our free pre-sales service.</div>
+        </div>
+      </div>
+
+      <!-- CUSTOMIZATION -->
+      <div class="faq-category" id="customization">
+        <div class="faq-cat-title"><span class="faq-cat-icon">🎨</span>Customization</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What can I customize on my packaging? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Almost everything: box size and shape · exterior paper color and texture · printing (full CMYK or Pantone) · finishing technique (foil, UV, emboss, soft touch) · interior lining material and color (velvet, foam, satin, kraft) · ribbon pull, magnetic strength · handle type (for bags) · insert shape and density. If you can describe it, we can likely make it.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What finishing options are available? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">We offer: Matte lamination · Gloss lamination · Soft Touch lamination · Gold foil stamp · Silver foil stamp · Rose gold foil · Holographic foil · Embossing (raised) · Debossing (recessed) · Spot UV · Aqueous coating · Textured paper wrap · Pearlescent / metallic paper. Finishes can be combined — for example, Soft Touch + Gold Foil + Spot UV is one of our most popular combinations.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you match Pantone colors? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes. We support the Pantone Matching System (PMS) for both paper wrapping and printing. Our Delta E color accuracy guarantee is &lt;2 on rigid board. If you have a Pantone code, provide it in your quote request and we'll match it as closely as the substrate allows.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What file formats do you accept for artwork? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Preferred (best quality): Adobe Illustrator (.AI), PDF (vector), EPS. Accepted: PSD (Photoshop), PNG at 300dpi+, JPG at 300dpi+. We can trace and redraw low-resolution logos at no extra charge. If you don't have design files yet, our design team will create everything from your brief.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What size boxes can you make? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Our size range: Minimum: 5×5×3cm · Maximum: 60×50×30cm (standard) · Larger sizes available on request for special projects. We manufacture a custom die for every order — there is no "standard" size we push you into.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I get a design mockup before I place an order? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — this is part of our free service. After you submit a quote request, our designer will send you a 3D rendered mockup showing your logo and colors on your chosen box style within 24 hours. No payment required at this stage.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can you sign a Non-Disclosure Agreement (NDA)? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes. We have a standard NDA we can sign before you share any design files or sensitive brand information. Many of our luxury brand clients require this. Just check the NDA box on the quote form, or ask Amy directly, and we'll send it before your mockup.</div>
+        </div>
+      </div>
+
+      <!-- SAMPLING -->
+      <div class="faq-category" id="sampling">
+        <div class="faq-cat-title"><span class="faq-cat-icon">📦</span>Sampling</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I get a physical sample before placing a bulk order? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Absolutely — and we strongly encourage it. A physical sample lets you verify the size, finish quality, color accuracy and structural feel before committing to thousands of pieces. Sample production takes 3–5 business days, then 1–3 days shipping via DHL or FedEx.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Is the sample free? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Sample production costs are charged (typically $60–$150 depending on complexity). This covers the custom die and material cost. However, the sample cost is <strong>fully credited against your bulk order</strong> when you proceed. Shipping is at your cost (DHL/FedEx express, usually $25–$50).</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I request changes after seeing the sample? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — unlimited revisions until you are happy. Minor changes (color, text) are free. Structural changes (size, mechanism) may require a new sample at a small cost. We don't start bulk production until you send written approval.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you keep stock samples I can request without customization? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — we can send a blank stock sample (no custom print) to let you feel the material and construction quality before any design work begins. These are available for $20–$40 per piece including shipping. Ask Amy for details.</div>
+        </div>
+      </div>
+
+      <!-- PRODUCTION -->
+      <div class="faq-category" id="production">
+        <div class="faq-cat-title"><span class="faq-cat-icon">🏭</span>Production</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What are the standard lead times? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Standard production lead times after sample approval: Magnetic Rigid Box — 12–15 days · Mailer Box — 10–12 days · Drawer Box — 15–18 days · Cylinder Tube — 10–14 days · Foldable Box — 10–12 days · Paper Bag — 10 days · Rigid Setup Box — 14–18 days. Rush production (add 30–50% premium) can reduce timelines by 3–5 days.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Will I receive updates during production? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — we send photo and video updates every 2 days throughout production. You'll see: raw material inspection · printing proof · die-cutting · assembly · quality control · final packing. Updates come via email or WhatsApp — your choice.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What is your quality control process? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">We run a 5-stage QC inspection: (1) Raw material incoming inspection · (2) Color proof approval before printing · (3) First-article inspection after die-cutting · (4) Assembly line random sampling (AQL 1.5) · (5) Final pre-shipment inspection. We've maintained a 99.2% on-spec delivery rate over 15 years.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I visit the factory? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — you are always welcome to visit our Shenzhen factory. We can also arrange a live video factory tour via Zoom or WhatsApp if a physical visit isn't possible. Contact us to schedule.</div>
+        </div>
+      </div>
+
+      <!-- SHIPPING & FBA -->
+      <div class="faq-category" id="shipping">
+        <div class="faq-cat-title"><span class="faq-cat-icon">🚢</span>Shipping & FBA</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you ship worldwide? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — we ship to 50+ countries. Primary markets: USA, UK, EU, Canada, Australia, Middle East, Southeast Asia. We can arrange both sea freight (most economical) and air freight (faster), and handle all export documentation.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What are the shipping options and transit times? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Sea freight (FCL/LCL): 18–30 days depending on destination. Most economical for large orders. · Air freight: 3–7 days to most destinations. · Express courier (DHL/FedEx): 2–4 days. Best for samples and small orders. We coordinate with multiple freight forwarders to get you the best rate — just ask us to quote.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you ship directly to Amazon FBA warehouses? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — Amazon FBA direct shipment is a standard service we offer. We can: print FNSKU barcodes on each unit · apply poly-bag wrapping · create carton labels per Amazon requirements · coordinate shipment to your assigned FBA fulfillment center(s). Tell us your Amazon marketplace (US, UK, EU, etc.) in your quote request.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Who handles customs and import duties? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">We ship on EXW (Ex Works) or FOB (Free on Board) terms by default. Import duties and customs clearance in your country are the buyer's responsibility. We provide full export documentation (commercial invoice, packing list, certificate of origin) to support your import process. DDP (Delivered Duty Paid) available on request for some destinations.</div>
+        </div>
+      </div>
+
+      <!-- QUALITY & POLICY -->
+      <div class="faq-category" id="quality">
+        <div class="faq-cat-title"><span class="faq-cat-icon">✅</span>Quality & After-Sales Policy</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What happens if my order arrives with quality issues? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">We take quality problems seriously. Our policy: Report issues with photos within 30 days of receipt. For manufacturing defects confirmed by our QC team, we will: (1) Re-produce and reship the defective portion at no cost, or (2) Issue a partial/full refund depending on the defect extent. We have a dedicated QC escalation team — turnaround on claims is 3 business days.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What is your accepted defect rate (AQL)? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">We apply AQL 1.5 inspection standards — the same used by major global retailers. This means for a shipment of 1,000 pcs, we inspect 80 pieces and the lot is accepted only if fewer than 3 defects are found. Our historical defect rate is under 0.8%.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Are your materials food-safe and EU/US compliant? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes. All our standard materials meet REACH (EU), RoHS, and California Proposition 65 requirements. FSC-certified paper and soy-based inks are available for food-adjacent applications. SGS test reports available on request.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can I get a pre-shipment inspection (PSI) done by a third party? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — you can arrange SGS, Bureau Veritas, or any other third-party inspector to visit our factory before shipment. We welcome this and will fully cooperate. The cost is typically $200–$350 and is arranged directly between you and the inspection company.</div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="faq-category" id="payment">
+        <div class="faq-cat-title"><span class="faq-cat-icon">💳</span>Payment</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What payment methods do you accept? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">T/T (Bank Wire Transfer) — primary method · PayPal — available for orders under $3,000 (3% fee applies) · Letter of Credit (L/C) — available for orders over $10,000 · Western Union — available for small deposits. We do not accept credit cards directly, but PayPal allows card payments.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What are the payment terms? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Standard terms: 30% deposit upon order confirmation · 70% balance payment before shipment (after passing QC and you approve final photos). For repeat clients with established history, we offer 30/70 with shipment payment due 7 days after dispatch.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">In what currency do you invoice? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">All quotes and invoices are in USD by default. We can invoice in EUR or GBP on request. RMB (CNY) is available for China-based clients.</div>
+        </div>
+      </div>
+
+      <!-- CAPABILITIES -->
+      <div class="faq-category" id="capabilities">
+        <div class="faq-cat-title"><span class="faq-cat-icon">⚙️</span>Technical Capabilities</div>
+
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What is the smallest and largest box you can make? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Minimum size: approximately 5×5×3cm (any smaller and structural integrity is compromised). Maximum standard size: 60×50×30cm. Larger sizes for special projects on request — please describe your needs and we'll advise on feasibility.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you offer eco-friendly / sustainable packaging options? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes. We offer: FSC-certified paper and board · Soy-based and water-based inks · Recyclable corrugated board · Biodegradable lamination films · Uncoated kraft / natural board options. If sustainability credentials are important for your brand, mention it in your quote and we'll specify eco materials throughout.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Can you print barcodes, QR codes, or variable data? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — barcodes (EAN, UPC, ISBN), QR codes and static text are all included in standard printing. Variable data printing (unique serial numbers, personalized names) is available for digital inkjet runs — ask for a custom quote as pricing varies by volume.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">What board thicknesses are available for rigid boxes? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Standard options: 1mm (lightweight), 1.5mm (standard), 2mm (most popular for rigid boxes), 2.5mm (heavy-duty), 3mm (ultra premium). Thicker board = higher perceived quality and cost. Our default recommendation for magnetic rigid boxes is 2mm chipboard.</div>
+        </div>
+        <div class="faq-item-s">
+          <button class="faq-q-s" onclick="toggleFaqS(this)">Do you offer 3D rendering or structural dieline services? <em class="faq-ico">+</em></button>
+          <div class="faq-a-s">Yes — both are included free with every quote. The structural dieline (PDF) shows exact fold lines, glue points and dimensions. The 3D render shows your logo and color scheme applied to a photorealistic box. We deliver both within 24 hours of receiving your request.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CHANNELS -->
+<section style="background:var(--dark);padding:72px 6%">
+  <div style="text-align:center;margin-bottom:44px">
+    <div class="section-label" style="text-align:center">Get in Touch</div>
+    <h2 style="text-align:center">Still Have <em>Questions?</em></h2>
+    <p style="color:var(--gray);max-width:480px;margin:12px auto 0;font-size:0.95rem;line-height:1.75">Our team is available Monday–Friday, 9 AM–6 PM China Standard Time (UTC+8).</p>
+  </div>
+  <div class="contact-grid" style="max-width:900px;margin:0 auto">
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-title">Email</div>
+      <div class="contact-card-info"><a href="mailto:sales@luxopack.com">sales@luxopack.com</a><br>Full details & file attachments</div>
+      <div class="contact-card-hours">⏱ Reply within 24 hours</div>
+    </div>
+    <div class="contact-card" style="border-color:rgba(37,211,102,0.2)">
+      <div class="contact-card-icon">💬</div>
+      <div class="contact-card-title" style="color:#25D366">WhatsApp</div>
+      <div class="contact-card-info"><a href="https://wa.me/8613800000000" style="color:#25D366">+86 138 0000 0000</a><br>Fastest response channel</div>
+      <div class="contact-card-hours">⏱ Avg. 2 hour reply</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📋</div>
+      <div class="contact-card-title">Quote Form</div>
+      <div class="contact-card-info"><a href="quote.html">Submit a quote request</a><br>Get 3D mockup + pricing</div>
+      <div class="contact-card-hours">⏱ Mockup in 24 hours</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📍</div>
+      <div class="contact-card-title">Factory Address</div>
+      <div class="contact-card-info">LuxoPack Industrial Park<br>Longhua District, Shenzhen<br>Guangdong, China 518000</div>
+      <div class="contact-card-hours">🏭 Factory visits welcome</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div style="background:linear-gradient(135deg,var(--dark3),var(--dark2));padding:72px 6%;text-align:center;border-top:1px solid var(--gold-dim)">
+  <div class="section-label" style="text-align:center">Ready to Start?</div>
+  <h2 style="margin-bottom:16px">Get Your Free Quote <em>in 24 Hours</em></h2>
+  <p style="color:var(--gray);max-width:480px;margin:0 auto 36px;line-height:1.7;font-size:0.95rem">No commitment. Free 3D mockup. Factory-direct pricing. It starts with one form.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="quote.html" class="btn-primary">→ Request Free Quote</a>
+    <a href="https://wa.me/8613800000000?text=Hi%20Amy%2C%20I%20have%20a%20question%20about%20LuxoPack%20packaging!" target="_blank" class="btn-outline">💬 WhatsApp Us Now</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">LUXO<span>PACK</span></a>
+      <p class="footer-tagline">China's trusted factory-direct manufacturer of premium gift boxes. Serving 2,000+ brands in 50+ countries since 2010.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <div class="footer-links">
+        <a href="products.html">Magnetic Rigid Box</a>
+        <a href="products.html">Custom Mailer Box</a>
+        <a href="products.html">Drawer Box</a>
+        <a href="products.html">Cylinder Tube</a>
+        <a href="products.html">Foldable Box</a>
+        <a href="products.html">Paper Gift Bag</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="about.html#certs">Certifications</a>
+        <a href="support.html">Support & FAQ</a>
+        <a href="quote.html">Get a Quote</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div class="footer-contact-text"><a href="mailto:sales@luxopack.com">sales@luxopack.com</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">💬</div><div class="footer-contact-text"><a href="https://wa.me/8613800000000">WhatsApp: +86 138 0000 0000</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">Shenzhen, Guangdong, China</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 LuxoPack Co., Ltd. All rights reserved.</div>
+    <div class="footer-badges"><div class="footer-badge-item">FSC</div><div class="footer-badge-item">ISO 9001</div><div class="footer-badge-item">SGS</div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/8613800000000?text=Hi%20LuxoPack%2C%20I%20have%20a%20question!" class="wa-btn" target="_blank">💬</a>
+<a href="quote.html" class="floating-cta">✉ Get Free Quote</a>
+
+<script>
+function toggleFaqS(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item-s.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+function setActive(el){
+  document.querySelectorAll('.faq-nav-item').forEach(a=>a.classList.remove('active'));
+  el.classList.add('active');
+}
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('visible'),i*70);obs.unobserve(en.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
