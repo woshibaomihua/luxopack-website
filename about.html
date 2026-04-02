@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | LuxoPack — Premium Gift Box Factory Since 2010</title>
+  <meta name="description" content="LuxoPack is a China-based luxury gift box manufacturer with 15+ years experience, 30,000sqm factory, 500+ staff and FSC/ISO certifications. Factory direct, no middlemen."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .story-img{border-radius:16px;overflow:hidden;border:1px solid rgba(201,168,76,0.2);position:relative}
+    .story-img img{width:100%;display:block}
+    .story-img-badge{position:absolute;bottom:22px;left:22px;background:rgba(10,10,15,0.92);border:1px solid rgba(201,168,76,0.4);padding:14px 20px;border-radius:10px;backdrop-filter:blur(8px)}
+    .story-img-badge .big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;color:var(--gold)}
+    .story-img-badge .small{font-size:0.75rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
+
+    .timeline{position:relative;padding-left:32px}
+    .timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,0.1))}
+    .timeline-item{position:relative;margin-bottom:36px}
+    .timeline-item::before{content:'';position:absolute;left:-36px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2)}
+    .timeline-year{font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.85rem;color:var(--gold);letter-spacing:1px;margin-bottom:4px}
+    .timeline-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px}
+    .timeline-desc{color:var(--gray);font-size:0.87rem;line-height:1.65}
+
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .cert-card{background:var(--dark3);border-radius:14px;border:1px solid rgba(201,168,76,0.15);padding:28px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;transition:all 0.3s}
+    .cert-card:hover{border-color:rgba(201,168,76,0.5);transform:translateY(-4px)}
+    .cert-icon-big{width:72px;height:72px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:2rem}
+    .cert-name-big{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem}
+    .cert-desc{color:var(--gray);font-size:0.82rem;line-height:1.6}
+
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+    .team-card{background:var(--dark3);border-radius:14px;border:1px solid rgba(255,255,255,0.06);padding:28px 22px;text-align:center;transition:all 0.3s}
+    .team-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+    .team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#7a5a10);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.8rem;color:var(--dark);margin:0 auto 16px}
+    .team-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px}
+    .team-role{color:var(--gold);font-size:0.8rem;font-weight:600;margin-bottom:10px}
+    .team-bio{color:var(--gray);font-size:0.82rem;line-height:1.6}
+
+    .factory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .factory-img{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);aspect-ratio:4/3}
+    .factory-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+    .factory-img:hover img{transform:scale(1.05)}
+
+    .values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+    .value-card{background:var(--dark3);border-radius:14px;padding:28px 24px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s}
+    .value-card:hover{border-color:rgba(201,168,76,0.3)}
+    .value-icon{font-size:2rem;margin-bottom:14px}
+    .value-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px}
+    .value-desc{color:var(--gray);font-size:0.85rem;line-height:1.65}
+
+    @media(max-width:768px){.story-grid{grid-template-columns:1fr}.factory-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LUXO<span>PACK</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="quote.html" class="nav-cta">Get Free Quote</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-label">About LuxoPack</div>
+  <h1>15 Years of Making<br><em>Brands Look Extraordinary</em></h1>
+  <p>We are a family-owned, vertically integrated packaging manufacturer based in Shenzhen, China. Since 2010, we have helped over 2,000 brands across 50+ countries turn their packaging into a competitive advantage.</p>
+</div>
+
+<!-- OUR STORY -->
+<section style="background:var(--dark2)">
+  <div class="story-grid">
+    <div class="story-img reveal">
+      <img src="https://sc02.alicdn.com/kf/Aae21b69f24f64e628b0f1cc7c18f35ffW.png" alt="LuxoPack Factory"/>
+      <div class="story-img-badge">
+        <div class="big">2010</div>
+        <div class="small">Year Founded</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Our Story</div>
+      <h2>Born from a Belief That <em>Packaging Matters</em></h2>
+      <p style="color:var(--gray);line-height:1.8;margin-bottom:18px">LuxoPack was founded in 2010 by a team of packaging engineers with a simple belief: the box a product comes in is not an afterthought — it is the first chapter of the brand story.</p>
+      <p style="color:var(--gray);line-height:1.8;margin-bottom:18px">Starting from a 3,000sqm workshop with 40 staff, we have grown into one of South China's leading premium packaging manufacturers, with a 30,000sqm facility, 500+ employees, and clients in over 50 countries.</p>
+      <p style="color:var(--gray);line-height:1.8;margin-bottom:36px">We remain factory-direct — no agents, no middlemen. When you work with LuxoPack, you work directly with the people designing, printing, and assembling your packaging every day.</p>
+      <div style="display:flex;gap:36px;flex-wrap:wrap">
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--gold)">500+</div><div style="color:var(--gray);font-size:0.82rem;text-transform:uppercase;letter-spacing:1px">Skilled Staff</div></div>
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--gold)">30K</div><div style="color:var(--gray);font-size:0.82rem;text-transform:uppercase;letter-spacing:1px">sqm Factory</div></div>
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--gold)">50M+</div><div style="color:var(--gray);font-size:0.82rem;text-transform:uppercase;letter-spacing:1px">Boxes/Year</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="background:var(--dark)">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+    <div>
+      <div class="section-label">Our Journey</div>
+      <h2>How We Got <em>Here</em></h2>
+      <p class="section-sub">15 years of growth, investment and innovation — always with quality at the center.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-title">LuxoPack Founded</div>
+        <div class="timeline-desc">Started with 40 staff and a 3,000sqm workshop in Shenzhen, producing basic gift boxes for local wholesalers.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-title">First Export Orders</div>
+        <div class="timeline-desc">Secured first international clients from the US and UK. Invested in CMYK offset printing equipment to meet global quality standards.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2016</div>
+        <div class="timeline-title">ISO 9001 Certification</div>
+        <div class="timeline-desc">Achieved ISO 9001 quality management certification. Expanded to 12,000sqm. Launched rigid box and magnetic closure product lines.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-title">FSC & SGS Certified</div>
+        <div class="timeline-desc">Obtained FSC certification for sustainable sourcing. Added 8 new production lines. Client base grew to 500+ brands in 30 countries.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-title">New 30,000sqm Facility</div>
+        <div class="timeline-desc">Moved into brand new purpose-built factory. Installed automated die-cutting and gluing machinery. Staff reached 400+.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-title">2,000+ Global Clients</div>
+        <div class="timeline-desc">Today we serve 2,000+ brands across 50+ countries, producing over 50 million boxes per year. Still family-owned. Still factory-direct.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTORY -->
+<section style="background:var(--dark2)" id="factory">
+  <div class="section-label">Our Factory</div>
+  <h2>See Where Your <em>Packaging is Made</em></h2>
+  <p class="section-sub">30,000sqm of modern manufacturing space, fully equipped for rigid boxes, printing, finishing and quality control — all under one roof.</p>
+  <div class="factory-grid">
+    <div class="factory-img reveal"><img src="https://sc02.alicdn.com/kf/Aae21b69f24f64e628b0f1cc7c18f35ffW.png" alt="LuxoPack Production Floor"/></div>
+    <div class="factory-img reveal"><img src="https://sc02.alicdn.com/kf/A35bd933f75e04388988683206e78ae1fv.png" alt="LuxoPack Quality Control"/></div>
+    <div class="factory-img reveal"><img src="https://sc02.alicdn.com/kf/Acd9fd55f559043e48ccc489b6d445439t.png" alt="LuxoPack Finished Products"/></div>
+  </div>
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px">
+    <div style="background:var(--dark3);border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.05);text-align:center">
+      <div style="font-size:1.8rem;margin-bottom:8px">🖨</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px">20+ Printing Lines</div>
+      <div style="color:var(--gray);font-size:0.82rem">Offset CMYK, UV, and digital printing</div>
+    </div>
+    <div style="background:var(--dark3);border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.05);text-align:center">
+      <div style="font-size:1.8rem;margin-bottom:8px">✂️</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px">Auto Die-Cutting</div>
+      <div style="color:var(--gray);font-size:0.82rem">Precision automated cutting for every shape</div>
+    </div>
+    <div style="background:var(--dark3);border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.05);text-align:center">
+      <div style="font-size:1.8rem;margin-bottom:8px">🔍</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px">5-Step QC Process</div>
+      <div style="color:var(--gray);font-size:0.82rem">Inspection at every production milestone</div>
+    </div>
+    <div style="background:var(--dark3);border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.05);text-align:center">
+      <div style="font-size:1.8rem;margin-bottom:8px">📦</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px">In-House Logistics</div>
+      <div style="color:var(--gray);font-size:0.82rem">Sea and air freight coordination worldwide</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section style="background:var(--dark)" id="certs">
+  <div class="section-label">Certifications</div>
+  <h2>Built to <em>Global Standards</em></h2>
+  <p class="section-sub">Every box we make meets or exceeds international compliance requirements. Documentation provided upon request.</p>
+  <div class="cert-grid">
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🌲</div>
+      <div class="cert-name-big">FSC Certified</div>
+      <div class="cert-desc">Forest Stewardship Council certified. All paper and board sourced from responsibly managed forests. Eco credentials for your brand.</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🏆</div>
+      <div class="cert-name-big">ISO 9001:2015</div>
+      <div class="cert-desc">International quality management system standard. Guarantees consistent production quality and process control across every order.</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🔬</div>
+      <div class="cert-name-big">SGS Tested</div>
+      <div class="cert-desc">Materials and products independently tested by SGS — the world's leading inspection company. Full compliance reports available.</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🇪🇺</div>
+      <div class="cert-name-big">EU & US Compliant</div>
+      <div class="cert-desc">Meets REACH, RoHS, California Prop 65, and EU Packaging Directive requirements. Safe for food-adjacent and children's products.</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🌿</div>
+      <div class="cert-name-big">Recyclable Materials</div>
+      <div class="cert-desc">100% recyclable board and water-based inks available across all product lines. Biodegradable options for sustainable brands.</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon-big">🛡</div>
+      <div class="cert-name-big">BRC Certified</div>
+      <div class="cert-desc">British Retail Consortium global standard for packaging and packaging materials. Required by major UK and European retailers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VALUES -->
+<section style="background:var(--dark2)">
+  <div class="section-label">Our Values</div>
+  <h2>What Drives <em>Everything We Do</em></h2>
+  <p class="section-sub">These are not words on a wall — they are the decisions we make every day on the factory floor.</p>
+  <div class="values-grid">
+    <div class="value-card reveal"><div class="value-icon">🎯</div><div class="value-title">Quality Without Compromise</div><div class="value-desc">We run a 5-stage quality inspection on every order. If it is not perfect, it does not leave the factory. We have maintained a 99.2% on-spec delivery rate for 15 years.</div></div>
+    <div class="value-card reveal"><div class="value-icon">🤝</div><div class="value-title">Factory Direct Transparency</div><div class="value-desc">No agents, no markups, no surprises. You see our factory, our pricing, and our production. Real-time photo and video updates at every stage.</div></div>
+    <div class="value-card reveal"><div class="value-icon">💡</div><div class="value-title">Innovation in Every Box</div><div class="value-desc">We invest 8% of annual revenue in new equipment and finishing techniques. Our R&D team is constantly developing new materials and structures.</div></div>
+    <div class="value-card reveal"><div class="value-icon">🌿</div><div class="value-title">Responsibility to the Planet</div><div class="value-desc">FSC-certified materials, water-based inks, zero-waste production targets. We believe great packaging and environmental responsibility go hand in hand.</div></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="background:var(--dark)">
+  <div class="section-label">Our Team</div>
+  <h2>The People Behind <em>Your Packaging</em></h2>
+  <p class="section-sub">Experienced professionals dedicated to making your packaging perfect.</p>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar">J</div>
+      <div class="team-name">James Chen</div>
+      <div class="team-role">Founder & CEO</div>
+      <div class="team-bio">15+ years in luxury packaging. Founded LuxoPack with a vision to give global brands access to premium packaging without premium middleman costs.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">S</div>
+      <div class="team-name">Sarah Liu</div>
+      <div class="team-role">Head of Design</div>
+      <div class="team-bio">Trained at the Shenzhen Institute of Design. Leads a team of 12 designers creating structural and artwork solutions for global brands daily.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">M</div>
+      <div class="team-name">Michael Wang</div>
+      <div class="team-role">Quality Control Director</div>
+      <div class="team-bio">Former SGS auditor with 12 years of experience. Oversees LuxoPack's 5-stage QC process and all international compliance documentation.</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">A</div>
+      <div class="team-name">Amy Zhang</div>
+      <div class="team-role">International Sales Manager</div>
+      <div class="team-bio">Fluent in English, Spanish and Mandarin. Has personally managed accounts for brands in 30+ countries. Your first point of contact.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div style="background:linear-gradient(135deg,var(--dark3),var(--dark2));padding:72px 6%;text-align:center;border-top:1px solid var(--gold-dim)">
+  <div class="section-label" style="text-align:center">Work With Us</div>
+  <h2 style="margin-bottom:16px">Ready to Meet Your <em>New Packaging Partner?</em></h2>
+  <p style="color:var(--gray);max-width:520px;margin:0 auto 36px;line-height:1.7">Get a free quote, free design mockup, and a physical sample — all before you commit to any bulk order.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="quote.html" class="btn-primary">→ Request Free Quote</a>
+    <a href="https://wa.me/8613800000000" class="btn-outline" target="_blank">💬 WhatsApp Our Team</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">LUXO<span>PACK</span></a>
+      <p class="footer-tagline">China's trusted factory-direct manufacturer of premium gift boxes. Serving 2,000+ brands in 50+ countries since 2010.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <div class="footer-links">
+        <a href="products.html">Magnetic Rigid Box</a>
+        <a href="products.html">Custom Mailer Box</a>
+        <a href="products.html">Sliding Drawer Box</a>
+        <a href="products.html">Cylinder Tube Box</a>
+        <a href="products.html">Foldable Box</a>
+        <a href="products.html">Luxury Paper Bag</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="about.html#certs">Certifications</a>
+        <a href="support.html">Support & FAQ</a>
+        <a href="quote.html">Get a Quote</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div class="footer-contact-text"><a href="mailto:sales@luxopack.com">sales@luxopack.com</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">💬</div><div class="footer-contact-text"><a href="https://wa.me/8613800000000">WhatsApp: +86 138 0000 0000</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">Shenzhen, Guangdong, China</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 LuxoPack Co., Ltd. All rights reserved.</div>
+    <div class="footer-badges"><div class="footer-badge-item">FSC</div><div class="footer-badge-item">ISO 9001</div><div class="footer-badge-item">SGS</div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/8613800000000" class="wa-btn" target="_blank">💬</a>
+<a href="quote.html" class="floating-cta">✉ Get Free Quote</a>
+
+<script>
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

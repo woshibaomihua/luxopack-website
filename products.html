@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products | LuxoPack — Premium Custom Gift Box Manufacturer</title>
+  <meta name="description" content="Browse LuxoPack's full range of custom gift boxes: magnetic rigid boxes, mailer boxes, drawer boxes, cylinder tubes, foldable boxes and luxury paper bags. Factory direct, MOQ 100pcs."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Products specific */
+    .filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+    .filter-btn{padding:9px 20px;border-radius:100px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.65);font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+    .filter-btn:hover,.filter-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold);font-weight:700}
+
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px}
+    .prod-card{background:var(--dark3);border-radius:16px;border:1px solid rgba(255,255,255,0.06);overflow:hidden;transition:all 0.35s;display:flex;flex-direction:column}
+    .prod-card:hover{border-color:rgba(201,168,76,0.45);transform:translateY(-7px);box-shadow:0 28px 64px rgba(0,0,0,0.55)}
+    .prod-img{aspect-ratio:16/10;overflow:hidden;position:relative}
+    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.45s}
+    .prod-card:hover .prod-img img{transform:scale(1.06)}
+    .prod-badge{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--dark);font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+    .prod-body{padding:26px;flex:1;display:flex;flex-direction:column;gap:14px}
+    .prod-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.2rem;line-height:1.2}
+    .prod-desc{color:var(--gray);font-size:0.88rem;line-height:1.7;flex:1}
+    .prod-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .spec-item{background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px}
+    .spec-key{font-size:0.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+    .spec-val{font-size:0.9rem;font-weight:600;color:var(--white)}
+    .prod-finishes{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+    .finish-tag{font-size:0.72rem;padding:4px 10px;border-radius:100px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);color:rgba(255,255,255,0.7)}
+    .prod-actions{display:flex;gap:10px;margin-top:6px}
+    .prod-actions a{flex:1;text-align:center;padding:12px;border-radius:8px;font-weight:700;font-size:0.85rem;text-decoration:none;transition:all 0.2s}
+    .prod-quote{background:var(--gold);color:var(--dark)}
+    .prod-quote:hover{background:var(--gold-light)}
+    .prod-detail{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2)}
+    .prod-detail:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* Product Detail Modal */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+    .modal-overlay.open{display:flex}
+    .modal{background:var(--dark2);border-radius:20px;border:1px solid rgba(201,168,76,0.2);max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+    .modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.1);border:none;color:var(--white);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:10}
+    .modal-close:hover{background:rgba(201,168,76,0.3)}
+    .modal-grid{display:grid;grid-template-columns:1fr 1fr;min-height:400px}
+    .modal-img{border-radius:20px 0 0 20px;overflow:hidden}
+    .modal-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .modal-info{padding:40px 36px;display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+    .modal-tag{display:inline-block;background:rgba(201,168,76,0.1);color:var(--gold);font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+    .modal-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;line-height:1.15}
+    .modal-desc{color:var(--gray);font-size:0.92rem;line-height:1.75}
+    .modal-specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .modal-spec{background:var(--dark3);border-radius:8px;padding:12px 14px}
+    .modal-spec-key{font-size:0.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+    .modal-spec-val{font-size:0.92rem;font-weight:600}
+    .modal-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:1px;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-top:6px}
+    .modal-list{display:flex;flex-wrap:wrap;gap:7px}
+    .modal-chip{font-size:0.78rem;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.75)}
+    .modal-actions{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+
+    /* Applications */
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-top:16px}
+    .app-card{background:var(--dark3);border-radius:12px;padding:20px;text-align:center;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s}
+    .app-card:hover{border-color:rgba(201,168,76,0.3)}
+    .app-icon{font-size:2rem;margin-bottom:10px}
+    .app-name{font-size:0.85rem;font-weight:600}
+
+    @media(max-width:768px){
+      .product-grid{grid-template-columns:1fr}
+      .modal-grid{grid-template-columns:1fr}
+      .modal-img{border-radius:20px 20px 0 0;max-height:220px}
+      .modal-info{padding:24px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LUXO<span>PACK</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="quote.html" class="nav-cta">Get Free Quote</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-label">Our Products</div>
+  <h1>Premium Packaging<br><em>Built for Your Brand</em></h1>
+  <p>Six product categories, infinite customization possibilities. Every box is engineered to create a lasting impression — click any product to see full specs, finishes, and pricing.</p>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section style="background:var(--dark2)">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All Products</button>
+    <button class="filter-btn" onclick="filterProducts('rigid',this)">Rigid Boxes</button>
+    <button class="filter-btn" onclick="filterProducts('mailer',this)">Mailer Boxes</button>
+    <button class="filter-btn" onclick="filterProducts('specialty',this)">Specialty</button>
+    <button class="filter-btn" onclick="filterProducts('bags',this)">Paper Bags</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+
+    <!-- 1. Magnetic Rigid Box -->
+    <div class="prod-card" data-cat="rigid">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/Acd9fd55f559043e48ccc489b6d445439t.png" alt="Magnetic Rigid Gift Box"/>
+        <div class="prod-badge">⭐ Bestseller</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Magnetic Rigid Gift Box</div>
+        <p class="prod-desc">Our flagship product. Premium rigid chipboard with powerful magnetic closure, smooth opening action. Chosen by luxury brands worldwide for cosmetics, jewelry, corporate gifts and apparel.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">100 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">12–15 days</div></div>
+          <div class="spec-item"><div class="spec-key">Material</div><div class="spec-val">2mm Rigid Board</div></div>
+          <div class="spec-item"><div class="spec-key">Thickness</div><div class="spec-val">1.5mm – 3mm</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Matte Lamination</span>
+            <span class="finish-tag">Gloss Lamination</span>
+            <span class="finish-tag">Gold Foil</span>
+            <span class="finish-tag">Embossing</span>
+            <span class="finish-tag">Spot UV</span>
+            <span class="finish-tag">Soft Touch</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Magnetic+Rigid+Box" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('magnetic')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Custom Mailer Box -->
+    <div class="prod-card" data-cat="mailer">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/A269585bf37154ce88a43cbafd4c2122fE.png" alt="Custom Mailer Box"/>
+        <div class="prod-badge">🌿 Eco-Friendly</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Custom Printed Mailer Box</div>
+        <p class="prod-desc">Corrugated or kraft board, full CMYK print inside and out, self-locking tuck flap — no tape needed. FSC-certified materials available. The go-to choice for subscription boxes and D2C brands.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">200 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">10–12 days</div></div>
+          <div class="spec-item"><div class="spec-key">Material</div><div class="spec-val">Kraft / Corrugated</div></div>
+          <div class="spec-item"><div class="spec-key">Print</div><div class="spec-val">Full CMYK Both Sides</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Matte Lamination</span>
+            <span class="finish-tag">Gloss Lamination</span>
+            <span class="finish-tag">Spot UV</span>
+            <span class="finish-tag">Aqueous Coating</span>
+            <span class="finish-tag">FSC Certified</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Custom+Mailer+Box" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('mailer')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Drawer Box -->
+    <div class="prod-card" data-cat="rigid">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/Aff8ab17e2da9421baf28d5bb551224a0c.png" alt="Sliding Drawer Box"/>
+        <div class="prod-badge">💎 Premium</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Sliding Drawer Gift Box</div>
+        <p class="prod-desc">Elegant sliding drawer mechanism with velvet or EVA foam interior. Smooth, precise glide action. Available with ribbon pull for effortless opening. A premium choice for watches, candles and electronics.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">100 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">15–18 days</div></div>
+          <div class="spec-item"><div class="spec-key">Interior</div><div class="spec-val">Velvet / EVA Foam</div></div>
+          <div class="spec-item"><div class="spec-key">Pull</div><div class="spec-val">Ribbon / Magnetic</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Soft Touch</span>
+            <span class="finish-tag">Gold Foil</span>
+            <span class="finish-tag">Embossing</span>
+            <span class="finish-tag">Debossing</span>
+            <span class="finish-tag">Spot UV</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Sliding+Drawer+Box" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('drawer')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Cylinder Tube -->
+    <div class="prod-card" data-cat="specialty">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/A11c515b0de3442d7a2299593c0fdf900l.png" alt="Cylinder Tube Box"/>
+        <div class="prod-badge">🔥 Trending</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Luxury Cylinder / Tube Box</div>
+        <p class="prod-desc">Round paper tube with premium fitted lid, 360° full-wrap print capability and metallic finishes. Eye-catching and unique on the shelf. Perfect for wine, flowers, skincare, food and specialty gift sets.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">200 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">10–14 days</div></div>
+          <div class="spec-item"><div class="spec-key">Print</div><div class="spec-val">360° Full Wrap</div></div>
+          <div class="spec-item"><div class="spec-key">Sizes</div><div class="spec-val">Custom Diameter</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Matte / Gloss</span>
+            <span class="finish-tag">Metallic Film</span>
+            <span class="finish-tag">Gold Foil</span>
+            <span class="finish-tag">Textured Paper</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Cylinder+Tube+Box" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('cylinder')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Foldable Magnetic -->
+    <div class="prod-card" data-cat="rigid">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/Aae21b69f24f64e628b0f1cc7c18f35ffW.png" alt="Foldable Magnetic Box"/>
+        <div class="prod-badge">💡 Cost Saver</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Foldable Magnetic Box</div>
+        <p class="prod-desc">Premium look, flat-pack economics. Ships flat and snaps open in seconds — reducing freight costs by up to 60% versus rigid boxes. Magnetic closure, full customization. Ideal for scaling brands watching their COGS.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">300 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">10–12 days</div></div>
+          <div class="spec-item"><div class="spec-key">Shipping</div><div class="spec-val">Flat Pack</div></div>
+          <div class="spec-item"><div class="spec-key">Freight Save</div><div class="spec-val">Up to 60%</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Matte Lamination</span>
+            <span class="finish-tag">Gloss Lamination</span>
+            <span class="finish-tag">Soft Touch</span>
+            <span class="finish-tag">Gold Foil</span>
+            <span class="finish-tag">Spot UV</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Foldable+Magnetic+Box" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('foldable')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Paper Bag -->
+    <div class="prod-card" data-cat="bags">
+      <div class="prod-img">
+        <img src="https://sc02.alicdn.com/kf/A00be202665f64a238d04261ea038a7eei.png" alt="Luxury Paper Gift Bag"/>
+        <div class="prod-badge">🛍 Classic</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Luxury Paper Gift Bag</div>
+        <p class="prod-desc">Premium coated paper with rope or ribbon handles, tissue paper insert option. Available in matte, gloss, soft-touch lamination with foil stamping and embossing. The ultimate retail brand statement piece.</p>
+        <div class="prod-specs">
+          <div class="spec-item"><div class="spec-key">MOQ</div><div class="spec-val">300 pcs</div></div>
+          <div class="spec-item"><div class="spec-key">Lead Time</div><div class="spec-val">10 days</div></div>
+          <div class="spec-item"><div class="spec-key">Handle</div><div class="spec-val">Rope / Ribbon</div></div>
+          <div class="spec-item"><div class="spec-key">GSM</div><div class="spec-val">157–300gsm</div></div>
+        </div>
+        <div>
+          <div class="spec-key" style="margin-bottom:8px">Available Finishes</div>
+          <div class="prod-finishes">
+            <span class="finish-tag">Matte Lamination</span>
+            <span class="finish-tag">Gloss Lamination</span>
+            <span class="finish-tag">Gold Foil</span>
+            <span class="finish-tag">Embossing</span>
+            <span class="finish-tag">Soft Touch</span>
+          </div>
+        </div>
+        <div class="prod-actions">
+          <a href="quote.html?product=Luxury+Paper+Bag" class="prod-quote">Get Quote</a>
+          <button class="prod-detail" onclick="openModal('bag')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section style="background:var(--dark)">
+  <div class="section-label">Applications</div>
+  <h2>Industries We <em>Serve</em></h2>
+  <p class="section-sub">Our packaging is trusted across every premium industry that values first impressions.</p>
+  <div class="app-grid">
+    <div class="app-card reveal"><div class="app-icon">💄</div><div class="app-name">Beauty & Cosmetics</div></div>
+    <div class="app-card reveal"><div class="app-icon">💍</div><div class="app-name">Jewelry & Watches</div></div>
+    <div class="app-card reveal"><div class="app-icon">👗</div><div class="app-name">Fashion & Apparel</div></div>
+    <div class="app-card reveal"><div class="app-icon">🍷</div><div class="app-name">Wine & Spirits</div></div>
+    <div class="app-card reveal"><div class="app-icon">🍫</div><div class="app-name">Food & Confectionery</div></div>
+    <div class="app-card reveal"><div class="app-icon">📱</div><div class="app-name">Electronics</div></div>
+    <div class="app-card reveal"><div class="app-icon">🕯</div><div class="app-name">Candles & Home</div></div>
+    <div class="app-card reveal"><div class="app-icon">🌸</div><div class="app-name">Floral & Gifts</div></div>
+    <div class="app-card reveal"><div class="app-icon">🎁</div><div class="app-name">Corporate Gifting</div></div>
+    <div class="app-card reveal"><div class="app-icon">📦</div><div class="app-name">E-Commerce / D2C</div></div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div style="background:linear-gradient(135deg,var(--dark3),var(--dark2));padding:72px 6%;text-align:center;border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim)">
+  <div class="section-label" style="text-align:center">Ready to Start?</div>
+  <h2 style="margin-bottom:16px">Get a Free Quote <em>in 24 Hours</em></h2>
+  <p style="color:var(--gray);max-width:500px;margin:0 auto 36px;line-height:1.7">Tell us your product type, size and quantity. Our team responds with a free design mockup and factory-direct pricing — no commitment required.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="quote.html" class="btn-primary">→ Request Free Quote</a>
+    <a href="https://wa.me/8613800000000" class="btn-outline" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">LUXO<span>PACK</span></a>
+      <p class="footer-tagline">China's trusted factory-direct manufacturer of premium gift boxes. Serving 2,000+ brands in 50+ countries since 2010.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <div class="footer-links">
+        <a href="products.html">Magnetic Rigid Box</a>
+        <a href="products.html">Custom Mailer Box</a>
+        <a href="products.html">Sliding Drawer Box</a>
+        <a href="products.html">Cylinder Tube Box</a>
+        <a href="products.html">Foldable Box</a>
+        <a href="products.html">Luxury Paper Bag</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="about.html#certs">Certifications</a>
+        <a href="support.html">Support & FAQ</a>
+        <a href="quote.html">Get a Quote</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">✉</div><div class="footer-contact-text"><a href="mailto:sales@luxopack.com">sales@luxopack.com</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">💬</div><div class="footer-contact-text"><a href="https://wa.me/8613800000000">WhatsApp: +86 138 0000 0000</a></div></div>
+      <div class="footer-contact-item"><div class="footer-contact-icon">📍</div><div class="footer-contact-text">Shenzhen, Guangdong, China</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 LuxoPack Co., Ltd. All rights reserved.</div>
+    <div class="footer-badges"><div class="footer-badge-item">FSC</div><div class="footer-badge-item">ISO 9001</div><div class="footer-badge-item">SGS</div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/8613800000000" class="wa-btn" target="_blank">💬</a>
+<a href="quote.html" class="floating-cta">✉ Get Free Quote</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-grid">
+      <div class="modal-img"><img id="modalImg" src="" alt=""/></div>
+      <div class="modal-info" id="modalInfo"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = {
+  magnetic:{img:'https://sc02.alicdn.com/kf/Acd9fd55f559043e48ccc489b6d445439t.png',tag:'⭐ Bestseller',name:'Magnetic Rigid Gift Box',desc:'Our flagship product. Built from 2mm premium rigid chipboard with a powerful magnetic closure system. The smooth, satisfying snap of the lid creates an unboxing experience that buyers remember — and share. Fully customizable in size, color, material weight, and interior lining. Trusted by luxury brands in cosmetics, jewelry, apparel, and corporate gifting worldwide.',specs:[['MOQ','100 pcs'],['Lead Time','12–15 days'],['Board Thickness','1.5mm – 3mm'],['Interior','Velvet / Foam / Paper'],['Closure','Magnetic'],['Custom Size','Yes, any dimension']],finishes:['Matte Lamination','Gloss Lamination','Soft Touch','Gold Foil Stamp','Silver Foil Stamp','Embossing','Debossing','Spot UV','Glitter'],uses:['Cosmetics','Jewelry','Apparel','Corporate Gifts','Electronics','Chocolate & Food']},
+  mailer:{img:'https://sc02.alicdn.com/kf/A269585bf37154ce88a43cbafd4c2122fE.png',tag:'🌿 Eco-Friendly',name:'Custom Printed Mailer Box',desc:'The ultimate e-commerce packaging solution. Made from corrugated or kraft board with a self-locking tuck flap — no tape or glue required. Full CMYK printing on the inside and outside lets your brand make an impact from the moment the buyer receives their package. FSC-certified sustainable materials available.',specs:[['MOQ','200 pcs'],['Lead Time','10–12 days'],['Material','Kraft / E-flute Corrugated'],['Print','Full CMYK Inside + Out'],['Closure','Self-lock Tuck Flap'],['Certification','FSC Available']],finishes:['Matte Lamination','Gloss Lamination','Spot UV','Aqueous Coating','Water-based Ink'],uses:['Subscription Boxes','D2C E-Commerce','Beauty Products','Apparel','Tech Accessories','Gifts']},
+  drawer:{img:'https://sc02.alicdn.com/kf/Aff8ab17e2da9421baf28d5bb551224a0c.png',tag:'💎 Premium',name:'Sliding Drawer Gift Box',desc:'Sophistication in every detail. The drawer slides out with a smooth, precise action that elevates the unboxing moment. An optional ribbon pull makes opening effortless and elegant. Interior can be lined with velvet, EVA foam, or satin — custom-cut to hold your product perfectly.',specs:[['MOQ','100 pcs'],['Lead Time','15–18 days'],['Board','2mm Rigid Chipboard'],['Interior','Velvet / EVA / Satin'],['Pull','Ribbon / No Pull'],['Custom Size','Yes']],finishes:['Soft Touch','Matte Lamination','Gold Foil','Embossing','Debossing','Spot UV'],uses:['Jewelry','Watches','Candles','Electronics','Perfume','Gourmet Food']},
+  cylinder:{img:'https://sc02.alicdn.com/kf/A11c515b0de3442d7a2299593c0fdf900l.png',tag:'🔥 Trending',name:'Luxury Cylinder / Tube Box',desc:"Round is the new rectangle. Cylinder boxes stand out on any shelf and create a unique tactile unboxing experience. 360° wrap-around printing means every angle of your packaging tells your brand story. Available in any diameter and height — from lipstick-size to wine bottle-size.",specs:[['MOQ','200 pcs'],['Lead Time','10–14 days'],['Print','360° Full Wrap'],['Lid','Press-fit / Telescopic'],['Diameter','30mm – 200mm'],['Height','Custom']],finishes:['Matte / Gloss Lamination','Metallic Film Wrap','Gold Foil','Textured Paper','Kraft Wrap'],uses:['Wine & Spirits','Flowers','Skincare','Candles','Tea & Coffee','Specialty Gifts']},
+  foldable:{img:'https://sc02.alicdn.com/kf/Aae21b69f24f64e628b0f1cc7c18f35ffW.png',tag:'💡 Cost Saver',name:'Foldable Magnetic Box',desc:'All the premium look of a rigid box at a fraction of the freight cost. Ships completely flat, reducing shipping volume by up to 60%. Pops open instantly and locks with a magnetic closure. Perfect for brands who need impressive packaging without the high logistics overhead.',specs:[['MOQ','300 pcs'],['Lead Time','10–12 days'],['Ship Format','Flat Pack'],['Freight Saving','Up to 60%'],['Closure','Magnetic'],['Assembly','No glue required']],finishes:['Matte Lamination','Gloss Lamination','Soft Touch','Gold Foil','Spot UV'],uses:['D2C Brands','Subscription Boxes','Apparel','Cosmetics','Electronics','Gifts']},
+  bag:{img:'https://sc02.alicdn.com/kf/A00be202665f64a238d04261ea038a7eei.png',tag:'🛍 Classic',name:'Luxury Paper Gift Bag',desc:'The timeless brand statement. Premium coated paper with optional tissue paper insert, die-cut rope or ribbon handles, and the full suite of finishing options. From boutique retail to high-end corporate gifting — a beautifully finished paper bag is the last thing your customer touches before discovering what is inside.',specs:[['MOQ','300 pcs'],['Lead Time','10 days'],['Paper Weight','157 – 300gsm'],['Handle','Rope / Ribbon / Die-cut'],['Base','Cardboard Reinforced'],['Tissue Insert','Optional']],finishes:['Matte Lamination','Gloss Lamination','Soft Touch','Gold Foil','Embossing','Spot UV'],uses:['Retail Stores','Boutiques','Corporate Events','Beauty Brands','Fashion','Jewelry']}
+};
+
+function openModal(key){
+  const p=products[key];
+  document.getElementById('modalImg').src=p.img;
+  document.getElementById('modalImg').alt=p.name;
+  let specsHtml=p.specs.map(s=>`<div class="modal-spec"><div class="modal-spec-key">${s[0]}</div><div class="modal-spec-val">${s[1]}</div></div>`).join('');
+  let finishHtml=p.finishes.map(f=>`<span class="modal-chip">${f}</span>`).join('');
+  let useHtml=p.uses.map(u=>`<span class="modal-chip">${u}</span>`).join('');
+  document.getElementById('modalInfo').innerHTML=`
+    <span class="modal-tag">${p.tag}</span>
+    <div class="modal-title">${p.name}</div>
+    <p class="modal-desc">${p.desc}</p>
+    <div class="modal-specs-grid">${specsHtml}</div>
+    <div class="modal-section-title">Finishing Options</div>
+    <div class="modal-list">${finishHtml}</div>
+    <div class="modal-section-title">Common Applications</div>
+    <div class="modal-list">${useHtml}</div>
+    <div class="modal-actions">
+      <a href="quote.html?product=${encodeURIComponent(p.name)}" class="btn-primary" style="justify-content:center">→ Get Free Quote for This Product</a>
+      <a href="https://wa.me/8613800000000?text=Hi, I'm interested in ${encodeURIComponent(p.name)}" class="btn-outline" style="justify-content:center" target="_blank">💬 Ask on WhatsApp</a>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';}
+function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+
+function filterProducts(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none';
+  });
+}
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

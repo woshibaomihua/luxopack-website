@@ -36,8 +36,8 @@
 
     /* HERO */
     #hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('https://sc02.alicdn.com/kf/Aa12f5926a95e41dfa3b5ef92664e4e5aQ.png'); background-size: cover; background-position: center; filter: brightness(0.4); }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(10,10,15,0.95) 38%, rgba(10,10,15,0.2) 100%); }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://sc02.alicdn.com/kf/A98f8b04dd8ba484487f08eb1ddbb197e2.png'); background-size: cover; background-position: center top; filter: brightness(0.55) saturate(0.9); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(10,10,15,0.96) 38%, rgba(10,10,15,0.25) 100%); }
     .hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 6%; padding-top: 90px; }
     .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.4); color: var(--gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 16px; border-radius: 100px; margin-bottom: 28px; }
     .badge::before { content:''; width:6px; height:6px; background:var(--gold); border-radius:50%; animation: blink 2s infinite; }
@@ -91,6 +91,8 @@
     .meta-item { display: flex; flex-direction: column; gap: 2px; }
     .meta-key { color: var(--gray); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; }
     .meta-val { color: var(--white); font-weight: 600; }
+    .product-quote-btn { display: block; margin-top: 16px; background: transparent; border: 1px solid rgba(201,168,76,0.5); color: var(--gold); text-align: center; padding: 10px; border-radius: 7px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+    .product-quote-btn:hover { background: var(--gold); color: var(--dark); }
 
     /* WHY US */
     #why { background: var(--dark); }
@@ -257,12 +259,12 @@
 
 <!-- STATS -->
 <div class="stats-strip">
-  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
-  <div class="stat"><div class="stat-num">2,000+</div><div class="stat-label">Global Brand Clients</div></div>
+  <div class="stat"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="stat-label">Years in Business</div></div>
+  <div class="stat"><div class="stat-num" data-target="2000" data-suffix="+">0</div><div class="stat-label">Global Brand Clients</div></div>
   <div class="stat"><div class="stat-num">100pcs</div><div class="stat-label">Low MOQ</div></div>
   <div class="stat"><div class="stat-num">15 Days</div><div class="stat-label">Standard Lead Time</div></div>
-  <div class="stat"><div class="stat-num">50M+</div><div class="stat-label">Boxes Produced/Year</div></div>
-  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Countries Shipped</div></div>
+  <div class="stat"><div class="stat-num" data-target="50" data-suffix="M+">0</div><div class="stat-label">Boxes Produced/Year</div></div>
+  <div class="stat"><div class="stat-num" data-target="50" data-suffix="+">0</div><div class="stat-label">Countries Shipped</div></div>
 </div>
 
 <!-- CLIENTS LOGO WALL -->
@@ -292,7 +294,7 @@
 
   <div class="products-grid">
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Magnetic Rigid Gift Box" style="object-position:0% 0%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A66dd8ef7c4e34c26a8ee139b36feb5732.png" alt="Magnetic Rigid Gift Box" /></div>
       <div class="product-info">
         <span class="product-tag">⭐ Bestseller</span>
         <div class="product-name">Magnetic Rigid Gift Box</div>
@@ -302,10 +304,11 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">12–15 days</div></div>
           <div class="meta-item"><div class="meta-key">Finishing</div><div class="meta-val">Foil / UV / Emboss</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Magnetic Rigid Gift Box')">→ Quote This Product</a>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Custom Mailer Box" style="object-position:33% 0%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/Acee39ae74a5a4486b1089e38391d81c4x.png" alt="Custom Mailer Box" /></div>
       <div class="product-info">
         <span class="product-tag">🌿 Eco-Friendly</span>
         <div class="product-name">Custom Printed Mailer Box</div>
@@ -315,10 +318,11 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">10–12 days</div></div>
           <div class="meta-item"><div class="meta-key">Material</div><div class="meta-val">Kraft / Corrugated</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Custom Printed Mailer Box')">→ Quote This Product</a>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Drawer Sliding Box" style="object-position:66% 0%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A8e8e47e289014aa9b4108d74b71f194dW.png" alt="Sliding Drawer Gift Box" /></div>
       <div class="product-info">
         <span class="product-tag">💎 Premium</span>
         <div class="product-name">Sliding Drawer Gift Box</div>
@@ -328,10 +332,11 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">15–18 days</div></div>
           <div class="meta-item"><div class="meta-key">Interior</div><div class="meta-val">Velvet / Foam</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Sliding Drawer Gift Box')">→ Quote This Product</a>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Luxury Cylinder Box" style="object-position:0% 100%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A11c515b0de3442d7a2299593c0fdf900l.png" alt="Luxury Cylinder Tube Box" /></div>
       <div class="product-info">
         <span class="product-tag">🔥 Trending</span>
         <div class="product-name">Luxury Cylinder / Tube Box</div>
@@ -341,10 +346,11 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">10–14 days</div></div>
           <div class="meta-item"><div class="meta-key">Print</div><div class="meta-val">360° Full Wrap</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Luxury Cylinder / Tube Box')">→ Quote This Product</a>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Foldable Magnetic Box" style="object-position:50% 100%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A11d82c82b226498fb7604705e07f15edN.png" alt="Foldable Magnetic Box" /></div>
       <div class="product-info">
         <span class="product-tag">💡 Cost-Effective</span>
         <div class="product-name">Foldable Magnetic Box</div>
@@ -354,10 +360,11 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">10–12 days</div></div>
           <div class="meta-item"><div class="meta-key">Shipping</div><div class="meta-val">Flat Pack</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Foldable Magnetic Box')">→ Quote This Product</a>
       </div>
     </div>
     <div class="product-card reveal">
-      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A61181c6c16f0471593918505bc978cbeF.png" alt="Luxury Paper Gift Bag" style="object-position:100% 100%" /></div>
+      <div class="product-img"><img src="https://sc02.alicdn.com/kf/A2b10adf453964181b670b8c8106c4f9fz.png" alt="Luxury Paper Gift Bag" /></div>
       <div class="product-info">
         <span class="product-tag">🛍 Classic</span>
         <div class="product-name">Luxury Paper Gift Bag</div>
@@ -367,6 +374,7 @@
           <div class="meta-item"><div class="meta-key">Lead Time</div><div class="meta-val">10 days</div></div>
           <div class="meta-item"><div class="meta-key">Handle</div><div class="meta-val">Rope / Ribbon</div></div>
         </div>
+        <a href="#quote" class="product-quote-btn" onclick="setProduct('Luxury Paper Gift Bag')">→ Quote This Product</a>
       </div>
     </div>
   </div>
@@ -545,8 +553,30 @@
 <section id="quote">
   <div class="quote-inner">
     <div class="section-label">Get A Free Quote</div>
-    <h2>Ready to Elevate<br><em style="color:var(--gold)">Your Packaging?</em></h2>
-    <p class="section-sub" style="margin:0 auto;">Tell us what you need. Our team responds within 24 hours with a free design mockup and competitive factory price.</p>
+    <h2>🎁 Free Sample + Quote<br><em style="color:var(--gold)">in 24 Hours</em></h2>
+    <p class="section-sub" style="margin:0 auto;">No commitment. No spam. Our packaging consultant will contact you directly with a free design mockup and factory-direct price.</p>
+
+    <!-- CONSULTANT + ONLINE STATUS -->
+    <div style="display:flex;align-items:center;gap:16px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:16px 22px;margin-top:32px;text-align:left">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#7a5a10);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#0A0A0F;flex-shrink:0">A</div>
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:0.95rem">Hi, I'm Amy — your packaging consultant 👋</div>
+        <div style="color:var(--gray);font-size:0.82rem;margin-top:3px">Fill the form below and I'll personally respond with your free quote.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
+        <span style="width:9px;height:9px;border-radius:50%;background:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,0.25);display:inline-block"></span>
+        <span style="font-size:0.78rem;color:rgba(255,255,255,0.5)">Online · Avg. 2h reply</span>
+      </div>
+    </div>
+
+    <!-- OR WHATSAPP -->
+    <div style="margin-top:14px;margin-bottom:4px;text-align:center">
+      <a href="https://wa.me/8613800000000?text=Hi%20Amy%2C%20I%27d%20like%20a%20quote%20for%20custom%20gift%20boxes%21" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 22px;border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">
+        💬 Prefer instant reply? Chat on WhatsApp →
+      </a>
+      <div style="color:rgba(255,255,255,0.25);font-size:0.78rem;margin-top:10px">— or fill the form below —</div>
+    </div>
+
     <form class="form-grid" onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label>Your Name *</label>
@@ -566,14 +596,14 @@
       </div>
       <div class="form-group">
         <label>Product Type *</label>
-        <select name="product" required>
+        <select name="product" id="productSelect" required>
           <option value="" disabled selected>Select box type...</option>
           <option>Magnetic Rigid Gift Box</option>
-          <option>Custom Mailer Box</option>
-          <option>Sliding Drawer Box</option>
-          <option>Cylinder / Tube Box</option>
+          <option>Custom Printed Mailer Box</option>
+          <option>Sliding Drawer Gift Box</option>
+          <option>Luxury Cylinder / Tube Box</option>
           <option>Foldable Magnetic Box</option>
-          <option>Luxury Paper Bag</option>
+          <option>Luxury Paper Gift Bag</option>
           <option>Multiple Types / Other</option>
         </select>
       </div>
@@ -592,13 +622,22 @@
         <label>Tell Us More (Optional)</label>
         <textarea name="message" placeholder="Box size, color, special finish, intended use... any details help us quote faster."></textarea>
       </div>
+      <div class="form-group form-full">
+        <label>Upload Logo / Reference Image (Optional)</label>
+        <div style="border:1px dashed rgba(201,168,76,0.35);border-radius:8px;padding:18px;text-align:center;cursor:pointer;background:rgba(255,255,255,0.03);transition:border-color 0.2s" onclick="document.getElementById('fileInput').click()" id="fileDropZone">
+          <div style="font-size:1.5rem;margin-bottom:6px">📎</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.5)">Click to upload PNG, AI, PDF · Max 10MB</div>
+          <div style="font-size:0.78rem;color:var(--gold);margin-top:4px" id="fileLabel">No file selected</div>
+          <input type="file" id="fileInput" name="attachment" accept=".png,.jpg,.pdf,.ai,.eps" style="display:none" onchange="updateFileLabel(this)"/>
+        </div>
+      </div>
       <div class="form-full">
-        <button type="submit" class="btn-submit">🚀 Send My Request — It's 100% Free</button>
+        <button type="submit" class="btn-submit">🚀 Send My Request — Free &amp; No Commitment</button>
         <div class="form-note">🔒 Your information is safe. We respond within 24 hours on business days.</div>
       </div>
     </form>
     <div class="form-guarantees">
-      <div class="guarantee"><span>✅</span> Free Design Service</div>
+      <div class="guarantee"><span>✅</span> Free Design Mockup</div>
       <div class="guarantee"><span>✅</span> No Hidden Fees</div>
       <div class="guarantee"><span>✅</span> Sample Before Bulk</div>
       <div class="guarantee"><span>✅</span> Reply in 24 Hours</div>
@@ -684,10 +723,54 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✅ Sent! We\'ll reply within 24 hours.';
+    btn.textContent = '✅ Sent! Amy will reply within 24 hours.';
     btn.style.background = '#1a6b1a';
     btn.style.color = '#fff';
     btn.disabled = true;
+  }
+
+  // Quote This Product — pre-select dropdown
+  function setProduct(name) {
+    const sel = document.getElementById('productSelect');
+    if (!sel) return;
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === name) { sel.selectedIndex = i; break; }
+    }
+  }
+
+  // File upload label
+  function updateFileLabel(input) {
+    const label = document.getElementById('fileLabel');
+    const zone = document.getElementById('fileDropZone');
+    if (input.files && input.files[0]) {
+      label.textContent = '✅ ' + input.files[0].name;
+      label.style.color = '#C9A84C';
+      zone.style.borderColor = 'rgba(201,168,76,0.6)';
+    }
+  }
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = (current >= 1000 ? Math.round(current).toLocaleString() : Math.round(current)) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    });
+  }
+  // Trigger counter when stats strip enters viewport
+  const statsStrip = document.querySelector('.stats-strip');
+  if (statsStrip) {
+    const counterObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { animateCounters(); counterObs.disconnect(); }
+    }, { threshold: 0.3 });
+    counterObs.observe(statsStrip);
   }
 </script>
 </body>
