@@ -1,0 +1,40 @@
+User-agent: *
+Allow: /
+
+# Prioritize key pages
+Allow: /blog/
+Allow: /products.html
+Allow: /quote.html
+Allow: /about.html
+
+# Block internal/system files
+Disallow: /push.bat
+Disallow: /push_all.bat
+
+# Sitemap
+Sitemap: https://luxopack.com/sitemap.xml
+
+# AI crawlers — explicitly welcome for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
