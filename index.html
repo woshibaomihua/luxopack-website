@@ -776,7 +776,7 @@
       <div style="color:rgba(255,255,255,0.25);font-size:0.78rem;margin-top:10px">— or fill the form below —</div>
     </div>
 
-    <form class="form-grid" onsubmit="handleSubmit(event)">
+    <form class="form-grid" id="quoteForm" action="https://formspree.io/f/meeplvew" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label>Your Name *</label>
         <input type="text" name="name" placeholder="John Smith" required />
@@ -918,14 +918,43 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✅ Sent! Amy will reply within 24 hours.';
-    btn.style.background = '#1a6b1a';
-    btn.style.color = '#fff';
-    btn.disabled = true;
+  // Form submit — real Formspree submission
+  const quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = quoteForm.querySelector('.btn-submit');
+      btn.textContent = '⏳ Sending...';
+      btn.disabled = true;
+
+      const formData = new FormData(quoteForm);
+
+      try {
+        const res = await fetch('https://formspree.io/f/meeplvew', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          btn.textContent = '✅ Sent! Amy will reply within 24 hours.';
+          btn.style.background = '#1a6b1a';
+          btn.style.color = '#fff';
+          quoteForm.reset();
+          document.getElementById('fileLabel').textContent = 'No file selected';
+        } else {
+          btn.textContent = '❌ Failed. Please email us directly.';
+          btn.style.background = '#8b0000';
+          btn.style.color = '#fff';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = '❌ Network error. Please try again.';
+        btn.style.background = '#8b0000';
+        btn.style.color = '#fff';
+        btn.disabled = false;
+      }
+    });
   }
 
   // Quote This Product — pre-select dropdown
