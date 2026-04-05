@@ -1238,9 +1238,14 @@
   if (statsStrip) {
     const counterObs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) { animateCounters(); counterObs.disconnect(); }
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 });
     counterObs.observe(statsStrip);
   }
+  // Fallback: also run on DOMContentLoaded in case strip is already visible
+  window.addEventListener('load', () => {
+    const rect = statsStrip ? statsStrip.getBoundingClientRect() : null;
+    if (rect && rect.top < window.innerHeight) { animateCounters(); }
+  });
 </script>
 </body>
 </html>
