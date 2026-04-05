@@ -86,9 +86,10 @@
 <nav>
   <a href="index.html" class="logo">LUXO<span>PACK</span></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
     <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
     <li><a href="about.html">About Us</a></li>
-    <li><a href="support.html">Support</a></li>
     <li><a href="quote.html" class="nav-cta">Get Free Quote</a></li>
   </ul>
   <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
@@ -114,7 +115,7 @@
   <div class="product-grid" id="productGrid">
 
     <!-- 1. Magnetic Rigid Box -->
-    <div class="prod-card" data-cat="rigid">
+    <div class="prod-card" data-cat="rigid" onclick="location.href='/products/magnetic-rigid-gift-box.html'" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/Acd9fd55f559043e48ccc489b6d445439t.png" alt="Magnetic Rigid Gift Box"/>
         <div class="prod-badge">⭐ Bestseller</div>
@@ -140,14 +141,14 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Magnetic+Rigid+Box" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('magnetic')">View Details</button>
+          <a href="quote.html?product=Magnetic+Rigid+Box" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <a href="/products/magnetic-rigid-gift-box.html" class="prod-detail" onclick="event.stopPropagation()">View Details →</a>
         </div>
       </div>
     </div>
 
     <!-- 2. Custom Mailer Box -->
-    <div class="prod-card" data-cat="mailer">
+    <div class="prod-card" data-cat="mailer" onclick="location.href='/products/custom-mailer-box.html'" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/A269585bf37154ce88a43cbafd4c2122fE.png" alt="Custom Mailer Box"/>
         <div class="prod-badge">🌿 Eco-Friendly</div>
@@ -172,14 +173,14 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Custom+Mailer+Box" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('mailer')">View Details</button>
+          <a href="quote.html?product=Custom+Mailer+Box" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <a href="/products/custom-mailer-box.html" class="prod-detail" onclick="event.stopPropagation()">View Details →</a>
         </div>
       </div>
     </div>
 
     <!-- 3. Drawer Box -->
-    <div class="prod-card" data-cat="rigid">
+    <div class="prod-card" data-cat="rigid" onclick="location.href='/products/sliding-drawer-gift-box.html'" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/Aff8ab17e2da9421baf28d5bb551224a0c.png" alt="Sliding Drawer Box"/>
         <div class="prod-badge">💎 Premium</div>
@@ -204,14 +205,14 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Sliding+Drawer+Box" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('drawer')">View Details</button>
+          <a href="quote.html?product=Sliding+Drawer+Box" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <a href="/products/sliding-drawer-gift-box.html" class="prod-detail" onclick="event.stopPropagation()">View Details →</a>
         </div>
       </div>
     </div>
 
     <!-- 4. Cylinder Tube -->
-    <div class="prod-card" data-cat="specialty">
+    <div class="prod-card" data-cat="specialty" onclick="openModal('cylinder')" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/A11c515b0de3442d7a2299593c0fdf900l.png" alt="Cylinder Tube Box"/>
         <div class="prod-badge">🔥 Trending</div>
@@ -235,14 +236,14 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Cylinder+Tube+Box" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('cylinder')">View Details</button>
+          <a href="quote.html?product=Cylinder+Tube+Box" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <button class="prod-detail" onclick="event.stopPropagation(); openModal('cylinder')">View Details</button>
         </div>
       </div>
     </div>
 
     <!-- 5. Foldable Magnetic -->
-    <div class="prod-card" data-cat="rigid">
+    <div class="prod-card" data-cat="rigid" onclick="openModal('foldable')" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/Aae21b69f24f64e628b0f1cc7c18f35ffW.png" alt="Foldable Magnetic Box"/>
         <div class="prod-badge">💡 Cost Saver</div>
@@ -267,14 +268,14 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Foldable+Magnetic+Box" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('foldable')">View Details</button>
+          <a href="quote.html?product=Foldable+Magnetic+Box" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <button class="prod-detail" onclick="event.stopPropagation(); openModal('foldable')">View Details</button>
         </div>
       </div>
     </div>
 
     <!-- 6. Paper Bag -->
-    <div class="prod-card" data-cat="bags">
+    <div class="prod-card" data-cat="bags" onclick="openModal('bag')" style="cursor:pointer">
       <div class="prod-img">
         <img src="https://sc02.alicdn.com/kf/A00be202665f64a238d04261ea038a7eei.png" alt="Luxury Paper Gift Bag"/>
         <div class="prod-badge">🛍 Classic</div>
@@ -299,8 +300,8 @@
           </div>
         </div>
         <div class="prod-actions">
-          <a href="quote.html?product=Luxury+Paper+Bag" class="prod-quote">Get Quote</a>
-          <button class="prod-detail" onclick="openModal('bag')">View Details</button>
+          <a href="quote.html?product=Luxury+Paper+Bag" class="prod-quote" onclick="event.stopPropagation()">Get Quote</a>
+          <button class="prod-detail" onclick="event.stopPropagation(); openModal('bag')">View Details</button>
         </div>
       </div>
     </div>
