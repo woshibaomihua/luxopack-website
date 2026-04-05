@@ -448,10 +448,16 @@
     .footer-badges { display: flex; gap: 16px; }
     .footer-badge-item { color: rgba(255,255,255,0.2); font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; }
 
-    /* WHATSAPP */
-    .wa-btn { position: fixed; bottom: 32px; left: 32px; z-index: 998; background: #25D366; color: #fff; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 8px 32px rgba(37,211,102,0.5); transition: all 0.25s; text-decoration: none; animation: wa-pulse 3s infinite; }
-    .wa-btn:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(37,211,102,0.7); }
+    /* WHATSAPP DRAGGABLE */
+    #wa-drag { position: fixed; bottom: 80px; right: 28px; z-index: 9999; cursor: grab; user-select: none; touch-action: none; }
+    #wa-drag:active { cursor: grabbing; }
+    #wa-drag .wa-circle { width: 62px; height: 62px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; box-shadow: 0 8px 32px rgba(37,211,102,0.55); transition: box-shadow 0.25s, transform 0.2s; }
+    #wa-drag:hover .wa-circle { transform: scale(1.1); box-shadow: 0 12px 44px rgba(37,211,102,0.8); }
+    #wa-drag .wa-tooltip { position: absolute; right: 72px; top: 50%; transform: translateY(-50%); background: #fff; color: #111; font-size: 0.82rem; font-weight: 700; white-space: nowrap; padding: 7px 14px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.18); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    #wa-drag .wa-tooltip::after { content:''; position:absolute; right:-8px; top:50%; transform:translateY(-50%); border:5px solid transparent; border-left-color:#fff; }
+    #wa-drag:hover .wa-tooltip { opacity: 1; }
     @keyframes wa-pulse { 0%,100%{box-shadow:0 8px 32px rgba(37,211,102,0.5)} 50%{box-shadow:0 8px 48px rgba(37,211,102,0.85)} }
+    #wa-drag .wa-circle { animation: wa-pulse 3s infinite; }
 
     /* FLOATING CTA */
     .floating-cta { position: fixed; bottom: 32px; right: 32px; z-index: 998; background: var(--gold); color: var(--dark); padding: 14px 26px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.88rem; letter-spacing: 0.5px; text-decoration: none; box-shadow: 0 8px 32px rgba(201,168,76,0.5); transition: all 0.25s; display: flex; align-items: center; gap: 8px; animation: pulse-gold 2.5s infinite; }
@@ -1203,8 +1209,65 @@
   </div>
 </footer>
 
-<!-- WHATSAPP BTN -->
-<a href="https://wa.me/8613800000000?text=Hi%20LuxoPack%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20custom%20gift%20boxes" class="wa-btn" target="_blank" title="Chat on WhatsApp">💬</a>
+<!-- WHATSAPP DRAGGABLE BTN -->
+<div id="wa-drag">
+  <div class="wa-tooltip">Chat on WhatsApp</div>
+  <a href="https://wa.me/8613800000000?text=Hi%20LuxoPack%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20custom%20gift%20boxes" target="_blank" class="wa-circle" id="wa-link" title="Chat on WhatsApp">💬</a>
+</div>
+<script>
+(function(){
+  var el = document.getElementById('wa-drag');
+  var link = document.getElementById('wa-link');
+  var dragging = false, moved = false;
+  var startX, startY, origX, origY;
+
+  function getPos(e){ return e.touches ? e.touches[0] : e; }
+
+  el.addEventListener('mousedown', onStart);
+  el.addEventListener('touchstart', onStart, {passive:false});
+
+  function onStart(e){
+    e.preventDefault();
+    var p = getPos(e);
+    var rect = el.getBoundingClientRect();
+    startX = p.clientX; startY = p.clientY;
+    origX = rect.left; origY = rect.top;
+    dragging = true; moved = false;
+    el.style.transition = 'none';
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('mouseup', onEnd);
+    document.addEventListener('touchend', onEnd);
+  }
+
+  function onMove(e){
+    if(!dragging) return;
+    e.preventDefault();
+    var p = getPos(e);
+    var dx = p.clientX - startX, dy = p.clientY - startY;
+    if(Math.abs(dx)>4||Math.abs(dy)>4) moved = true;
+    var nx = origX + dx, ny = origY + dy;
+    // keep inside viewport
+    var w = el.offsetWidth, h = el.offsetHeight;
+    nx = Math.max(8, Math.min(window.innerWidth - w - 8, nx));
+    ny = Math.max(8, Math.min(window.innerHeight - h - 8, ny));
+    el.style.left = nx + 'px'; el.style.top = ny + 'px';
+    el.style.right = 'auto'; el.style.bottom = 'auto';
+  }
+
+  function onEnd(e){
+    dragging = false;
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('mouseup', onEnd);
+    document.removeEventListener('touchend', onEnd);
+    if(!moved){
+      // treat as click → open WhatsApp
+      link.click();
+    }
+  }
+})();
+</script>
 
 <!-- FLOATING CTA -->
 <a href="#quote" class="floating-cta">✉ Get Free Quote</a>
