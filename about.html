@@ -58,14 +58,37 @@
     .value-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px}
     .value-desc{color:var(--gray);font-size:0.85rem;line-height:1.65}
 
+    /* NAV overrides for about page */
+    nav { height: 68px; padding: 0 6%; background: rgba(6,6,10,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,168,76,0.28); box-shadow: 0 2px 32px rgba(0,0,0,0.45); transition: background 0.3s; }
+    nav.scrolled { background: rgba(4,4,8,0.98); box-shadow: 0 4px 40px rgba(0,0,0,0.7), 0 1px 0 rgba(201,168,76,0.18); }
+    .nav-links { gap: 28px; }
+    .nav-links > li > a { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.7); position: relative; }
+    .nav-links > li > a::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:var(--gold); border-radius:2px; transition: width 0.25s; }
+    .nav-links > li > a:hover { color: #fff; }
+    .nav-links > li > a:hover::after, .nav-links > li > a.active::after { width: 100%; }
+    .nav-cta { background: var(--gold) !important; color: var(--dark) !important; padding: 9px 22px !important; border-radius: 4px; font-weight: 800 !important; animation: nav-cta-pulse 2.5s infinite; }
+    .nav-cta::after { display: none !important; }
+    @keyframes nav-cta-pulse { 0%,100%{ box-shadow: 0 0 0 0 rgba(201,168,76,0.4); } 60%{ box-shadow: 0 0 0 8px rgba(201,168,76,0); } }
+    /* Dropdown */
     .nav-dropdown { position: relative; }
-    .nav-dropdown > a::after { content: ' ▾'; font-size: 0.65rem; opacity: 0.6; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 0.65rem; opacity: 0.6; width: auto !important; height: auto !important; background: none !important; position: static !important; }
     .nav-dropdown .dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: rgba(10,10,15,0.97); border: 1px solid rgba(201,168,76,0.2); border-radius: 10px; padding: 8px 0; min-width: 170px; list-style: none; z-index: 2000; backdrop-filter: blur(12px); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
     .nav-dropdown .dropdown-menu::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); border:6px solid transparent; border-bottom-color:rgba(201,168,76,0.25); border-top:none; }
     .nav-dropdown .dropdown-menu li { list-style: none; }
-    .nav-dropdown .dropdown-menu li a { display: block; padding: 10px 20px; color: rgba(255,255,255,0.75); font-size: 0.84rem; white-space: nowrap; transition: all 0.15s; }
+    .nav-dropdown .dropdown-menu li a { display: block; padding: 10px 20px; color: rgba(255,255,255,0.75); font-size: 0.84rem; white-space: nowrap; transition: all 0.15s; text-transform: none; letter-spacing: 0; }
+    .nav-dropdown .dropdown-menu li a::after { display: none !important; }
     .nav-dropdown .dropdown-menu li a:hover { color: var(--gold); background: rgba(201,168,76,0.07); padding-left: 26px; }
     .nav-dropdown:hover .dropdown-menu { display: block; }
+    /* WA float */
+    #wa-about { position: fixed; z-index: 9999; cursor: pointer; user-select: none; }
+    #wa-about .wa-circle { width: 68px; height: 68px; border-radius: 18px; background: transparent; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; filter: drop-shadow(0 6px 18px rgba(37,211,102,0.5)); }
+    #wa-about .wa-circle img { width: 68px; height: 68px; border-radius: 18px; display: block; }
+    #wa-about:hover .wa-circle { transform: scale(1.12); filter: drop-shadow(0 10px 28px rgba(37,211,102,0.75)); }
+    #wa-about .wa-tip { position: absolute; left: 78px; top: 50%; transform: translateY(-50%); background: #fff; color: #111; font-size: 0.82rem; font-weight: 700; white-space: nowrap; padding: 7px 14px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.18); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    #wa-about .wa-tip::before { content:''; position:absolute; left:-8px; top:50%; transform:translateY(-50%); border:5px solid transparent; border-right-color:#fff; }
+    #wa-about:hover .wa-tip { opacity: 1; }
+    @keyframes wa-bob { 0%,100%{ filter: drop-shadow(0 6px 18px rgba(37,211,102,0.5)); } 50%{ filter: drop-shadow(0 10px 32px rgba(37,211,102,0.8)); } }
+    #wa-about .wa-circle { animation: wa-bob 3s ease-in-out infinite; }
     @media(max-width:768px){
       .story-grid{grid-template-columns:1fr}.factory-grid{grid-template-columns:1fr 1fr}
       .nav-dropdown .dropdown-menu { display: block; position: static; transform: none; border: none; background: none; box-shadow: none; padding: 0 0 0 16px; border-left: 1px solid rgba(201,168,76,0.2); margin-top: 8px; }
@@ -394,11 +417,51 @@
 <a href="https://wa.me/8613800000000" class="wa-btn" target="_blank">💬</a>
 <a href="quote.html" class="floating-cta">✉ Get Free Quote</a>
 
+<!-- WHATSAPP AUTO-FLOATING BTN -->
+<div id="wa-about">
+  <div class="wa-tip">Chat on WhatsApp</div>
+  <a href="https://wa.me/8613800000000?text=Hi%20LuxoPack%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20custom%20gift%20boxes" target="_blank" class="wa-circle" title="Chat on WhatsApp">
+    <img src="https://sc01.alicdn.com/kf/A7d0d80c7cad24daba50a24988e3fd06ah.png" alt="WhatsApp" />
+  </a>
+</div>
+
 <script>
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
 const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});},{threshold:0.1});
 reveals.forEach(el=>obs.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// WA float animation
+(function(){
+  var el = document.getElementById('wa-about');
+  var SIZE = 68, PAD = 16;
+  var x = window.innerWidth - SIZE - PAD - Math.random()*80;
+  var y = window.innerHeight - SIZE - PAD - 100 - Math.random()*80;
+  var vx = (Math.random()*1.2+0.6)*(Math.random()<0.5?1:-1);
+  var vy = (Math.random()*1.2+0.6)*(Math.random()<0.5?1:-1);
+  var paused = false;
+  el.style.left = x+'px'; el.style.top = y+'px';
+  el.addEventListener('mouseenter',function(){paused=true;});
+  el.addEventListener('mouseleave',function(){paused=false;});
+  function step(){
+    if(!paused){
+      x+=vx; y+=vy;
+      var maxX=window.innerWidth-SIZE-PAD, maxY=window.innerHeight-SIZE-PAD;
+      if(x<=PAD){x=PAD;vx=Math.abs(vx);}
+      if(x>=maxX){x=maxX;vx=-Math.abs(vx);}
+      if(y<=PAD){y=PAD;vy=Math.abs(vy);}
+      if(y>=maxY){y=maxY;vy=-Math.abs(vy);}
+      el.style.left=x+'px'; el.style.top=y+'px';
+    }
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
 </script>
 </body>
 </html>
