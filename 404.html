@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | LuxoPack</title>
+  <meta name="robots" content="noindex, follow" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --gold: #d4a853; --dark: #0f0f0f; --dark2: #1a1a1a; }
+    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark); color: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+    nav { background: #000; padding: 20px 40px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: 3px; text-decoration: none; }
+    .nav-links a { color: #ccc; text-decoration: none; margin-left: 24px; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; }
+    .code { font-size: clamp(80px, 18vw, 160px); font-weight: 900; color: var(--gold); line-height: 1; opacity: 0.15; letter-spacing: -8px; }
+    .title { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; margin: -20px 0 16px; }
+    .subtitle { color: #888; font-size: 1rem; max-width: 440px; line-height: 1.7; margin-bottom: 40px; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn { display: inline-block; padding: 13px 30px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
+    .btn-gold { background: var(--gold); color: #000; }
+    .btn-gold:hover { background: #e8c56a; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid #444; color: #ccc; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .popular { margin-top: 60px; }
+    .popular h3 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
+    .popular-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .popular-links a { background: #1a1a1a; border: 1px solid #2a2a2a; color: #999; font-size: 0.82rem; padding: 8px 16px; border-radius: 4px; text-decoration: none; transition: all 0.2s; }
+    .popular-links a:hover { border-color: var(--gold); color: var(--gold); }
+    footer { background: #000; padding: 24px 40px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">LUXOPACK</a>
+  <div class="nav-links">
+    <a href="/products.html">Products</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/quote.html">Get Quote</a>
+  </div>
+</nav>
+
+<main>
+  <div class="code">404</div>
+  <h1 class="title">Page Not Found</h1>
+  <p class="subtitle">The page you're looking for may have moved or no longer exists. Let's get you back on track.</p>
+  <div class="btn-group">
+    <a href="/" class="btn btn-gold">← Back to Homepage</a>
+    <a href="/quote.html" class="btn btn-outline">Get Free Quote</a>
+  </div>
+
+  <div class="popular">
+    <h3>Popular Pages</h3>
+    <div class="popular-links">
+      <a href="/products/magnetic-rigid-gift-box.html">Magnetic Gift Box</a>
+      <a href="/products/custom-mailer-box.html">Custom Mailer Box</a>
+      <a href="/products/sliding-drawer-gift-box.html">Sliding Drawer Box</a>
+      <a href="/products.html">All Products</a>
+      <a href="/blog/">Packaging Blog</a>
+      <a href="/about.html">About LuxoPack</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 LuxoPack Packaging Co., Ltd. | <a href="/quote.html" style="color:var(--gold);text-decoration:none;">Request a Quote</a>
+</footer>
+
+</body>
+</html>
