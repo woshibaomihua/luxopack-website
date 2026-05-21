@@ -1,0 +1,39 @@
+# LuxoPack
+
+> China's #1 Factory-Direct Manufacturer for Premium Custom Gift Boxes & Luxury Packaging.
+
+LuxoPack provides high-end, sustainable packaging solutions for global brands. We eliminate middleman markups by providing factory-direct pricing, 48-hour physical prototyping, and low MOQs.
+
+## Core Capabilities
+- **Direct Factory**: 30,000 sqm facility in Shenzhen, ISO 9001 certified.
+- **Low MOQ**: Start with just 100 pcs for luxury rigid boxes.
+- **Fast Lead Time**: Standard production in 10-15 business days.
+- **Global Logistics**: Shipping to 50+ countries with DDP/DDU options.
+- **Design Support**: 24h design mockups and structural engineering.
+
+## Product Catalog
+- **Magnetic Rigid Boxes**: Flagship premium boxes for cosmetics and jewelry.
+- **Custom Mailer Boxes**: Eco-friendly corrugated packaging for D2C/Subscription.
+- **Sliding Drawer Boxes**: High-precision mechanisms for watches and candles.
+- **Cylinder / Tube Boxes**: 360° full-wrap printing for wine and specialty gifts.
+- **Foldable Magnetic Boxes**: Luxury look with flat-pack freight savings (up to 60%).
+- **Lid & Base Rigid Boxes**: Classic two-piece ultra-premium construction.
+
+## Finishing & Customization
+- **Finishes**: Matte/Gloss Lamination, Soft Touch, Spot UV, Foil Stamping (Gold/Silver/Holographic), Embossing/Debossing.
+- **Inserts**: Custom EVA foam, molded pulp, velvet, satin, and cardboard dividers.
+- **Sustainability**: FSC-certified paper, soy-based inks, and plastic-free solutions.
+
+## Contact Information
+- **Website**: https://luxopack.com
+- **Inquiry**: https://luxopack.com/quote.html
+- **Support**: https://luxopack.com/support.html
+- **Email**: info@luxopack.com
+
+## Sitemap Summary
+- `/index.html`: Home page with factory tour and core value proposition.
+- `/products.html`: Full 12-category product directory.
+- `/about.html`: Factory history, certifications, and production process.
+- `/blog/`: Packaging intelligence and sourcing guides.
+- `/quote.html`: Request for Quote (RFQ) gateway.
+- `/support.html`: FAQ, material guides, and support center.

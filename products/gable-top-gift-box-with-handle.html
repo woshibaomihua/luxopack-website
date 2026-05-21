@@ -81,18 +81,32 @@
 </head>
 <body>
 
-<nav>
-    <div class="container nav-content">
-        <div class="logo">LUXOPACK</div>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/products/">Products</a>
-            <a href="/blog/">Blog</a>
-            <a href="/about.html">About Us</a>
-            <a href="/quote.html">Get Quote</a>
-        </div>
-    </div>
+<nav id="mainNav">
+  <a href="/" class="logo">LUXO<span>PACK</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/products.html">Products</a></li>
+    <li><a href="/#testimonials">Reviews</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="nav-dropdown">
+      <a href="/about.html">About</a>
+      <ul class="dropdown-menu">
+        <li><a href="/about.html#story">Our Story</a></li>
+        <li><a href="/#why">Why Us</a></li>
+        <li><a href="/#process">Our Process</a></li>
+        <li><a href="/support.html">FAQ & Support</a></li>
+      </ul>
+    </li>
+    <li><a href="/quote.html" class="nav-cta">Get Free Quote</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
+  });
+</script>
 
 <div class="container">
     <div class="breadcrumb">
@@ -108,8 +122,13 @@
         <div class="hero-content">
             <h1>Custom Food-Grade Box</h1>
             <p>Square flat-pack food-grade box with full-color custom print on premium white board. Grease-resistant inner lining, food-safe inks. Suitable for pizza, pastries, meal kits and specialty food brands. Clean structure, flat-packed for efficient storage and shipping.</p>
-            <a href="/quote.html" class="btn">Get Factory Pricing</a>
-            <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-outline">WhatsApp Us</a>
+            <a href="/quote.html" class="btn">Get Factory Pricing (Save 30-50%)</a>
+            <div style="margin-top:25px;display:flex;justify-content:center;gap:20px;font-size:14px;color:#aaa;flex-wrap:wrap;">
+                <span>✅ 24h Prototyping</span>
+                <span>✅ Physical Sample in 48h</span>
+                <span>✅ Factory Direct - Save 30-50%</span>
+            </div>
+            <a href="https://wa.me/8613800000000" class="btn btn-outline">WhatsApp Us</a>
         </div>
     </div>
 </section>
